@@ -15,7 +15,7 @@ const app = express()
 // parse application/json
 //app.use(bodyParser.json())
 
-server.use((err, req, res, next) => {
+app.use((err, req, res, next) => {
   if (err.isBoom) {
     res
       .status(err.output.statusCode)
