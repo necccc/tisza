@@ -10,10 +10,22 @@ const validateRequest = require('./middlewares/request-validate')
 const app = express()
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+//app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
-app.use(bodyParser.json())
+//app.use(bodyParser.json())
+
+server.use((err, req, res, next) => {
+  if (err.isBoom) {
+    res
+      .status(err.output.statusCode)
+      .send(err.output.payload.message)
+
+    return;
+  }
+
+  next(err)
+})
 
 app.post('/register-purchase', validateRequest, validateTito, function (req, res) {
   console.log(req.body);

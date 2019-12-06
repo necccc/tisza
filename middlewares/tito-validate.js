@@ -6,13 +6,9 @@ const { TITO_TOKEN } = process.env
 module.exports = (request, response, next) => {
   const signature = request.headers['tito-signature']
   const hmac = crypto.createHmac('sha256', TITO_TOKEN);
+	hmac.update(request.body);
 
-  console.log(TITO_TOKEN);
-  console.log(typeof request.body);
   console.log(request.body);
-
-
-	hmac.update(JSON.stringify(request.body));
 
   console.log(signature);
   console.log(hmac.digest('base64'));
