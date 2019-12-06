@@ -8,12 +8,14 @@ module.exports = (request, response, next) => {
   const hmac = crypto.createHmac('sha256', TITO_TOKEN);
 
   console.log(TITO_TOKEN);
-
   console.log(typeof request.body);
   console.log(request.body);
 
 
 	hmac.update(JSON.stringify(request.body));
+
+  console.log(signature);
+  console.log(hmac.digest('base64'));
 
   const pass = (signature === hmac.digest('base64'))
 
