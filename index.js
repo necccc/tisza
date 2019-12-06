@@ -14,7 +14,7 @@ const app = express()
 
 // parse application/json
 //app.use(bodyParser.json())
-
+app.use(express.json())
 app.use((err, req, res, next) => {
   if (err.isBoom) {
     res
