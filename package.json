@@ -1,0 +1,33 @@
+{
+  "name": "tito-szamlazzhu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jssc-eu/tito-szamlazzhu.git"
+  },
+  "keywords": [],
+  "author": "nec@jsconfbp.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jssc-eu/tito-szamlazzhu/issues"
+  },
+  "homepage": "https://github.com/jssc-eu/tito-szamlazzhu#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "boom": "^7.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.1",
+    "szamlazz.js": "./szamlazz"
+  }
+}
