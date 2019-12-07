@@ -1,6 +1,5 @@
 const crypto = require('crypto');
-const boom = require('boom');
-
+const errors = require('restify-errors');
 const { TITO_TOKEN } = process.env
 
 module.exports = (request, response, next) => {
@@ -21,7 +20,7 @@ module.exports = (request, response, next) => {
   });
 
   if (signature !== hmac) {
-    next(boom.unauthorized('invalid token'))
+    next(new errors.UnauthorizedError('invalid token'))
   }
 
   return next(null)

@@ -20,15 +20,10 @@
   },
   "homepage": "https://github.com/jssc-eu/tito-szamlazzhu#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "boom": "^7.3.0",
-    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "errorhandler": "^1.5.1",
-    "express": "^4.17.1",
-    "helmet": "^3.21.2",
-    "morgan": "^1.9.1",
     "nodemon": "^2.0.1",
+    "restify": "^8.5.0",
+    "restify-errors": "^8.0.1",
     "szamlazz.js": "./szamlazz"
   }
 }

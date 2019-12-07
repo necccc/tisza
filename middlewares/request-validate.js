@@ -1,16 +1,16 @@
-const boom = require('boom');
+const errors = require('restify-errors');
 const { APP_TOKEN } = process.env
 
 module.exports = (request, response, next) => {
+  const urlObj = new URL(request.url, 'http://0.0.0.0/');
+  const token = urlObj.searchParams.get('token')
 
-  if (!request.query || !request.query.token) {
-    throw boom.unauthorized('missing token')
+  if (!token) {
+    return next(new errors.UnauthorizedError('missing token'))
   }
 
-  const { token } = request.query
-
   if (token !== APP_TOKEN) {
-    throw boom.unauthorized('invalid token')
+    throw next(new errors.UnauthorizedError('invalid token'))
   }
 
   next()

@@ -3,34 +3,26 @@
 require('dotenv').config()
 
 const { PORT = 8000 } = process.env
-const express = require('express')
-const helmet = require('helmet')
-const bodyParser = require('body-parser')
+
+const restify = require('restify');
 const validateTito = require('./middlewares/tito-validate')
 const validateRequest = require('./middlewares/request-validate')
-const app = express()
 
-app.use(helmet())
-app.use(bodyParser.json())
+const server = restify.createServer();
 
-app.post('/register-purchase', validateRequest, validateTito, function (req, res) {
+server.post('/register-purchase/', validateRequest, validateTito, function (req, res) {
   console.log(req.body);
 
   res.send('ok')
-})
+});
+server.head('/register-purchase/', validateRequest, validateTito, function (req, res) {
+  console.log(req.body);
 
-app.use((err, req, res, next) => {
-  if (err.isBoom) {
-    console.error(`${err.output.statusCode} ${err.output.payload.message}`)
-    res
-      .status(err.output.statusCode)
-      .send(err.output.payload.message)
+  res.send('ok')
+});
 
-    return;
-  }
+server.use(restify.plugins.bodyParser())
 
-  next(err)
-})
-
-
-app.listen(PORT, () => console.log(`App listening on port ${PORT}!`))
+server.listen(PORT, function() {
+  console.log('%s listening at %s', server.name, server.url);
+});
