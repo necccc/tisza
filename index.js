@@ -13,10 +13,17 @@ const app = express()
 //app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
-//app.use(bodyParser.json())
-app.use(express.json())
+app.use(bodyParser.json())
+
+app.post('/register-purchase', validateRequest, validateTito, function (req, res) {
+  console.log(req.body);
+
+  res.send('ok')
+})
+
 app.use((err, req, res, next) => {
   if (err.isBoom) {
+    console.error(`${err.output.statusCode} ${err.output.payload.message}`)
     res
       .status(err.output.statusCode)
       .send(err.output.payload.message)
@@ -27,10 +34,5 @@ app.use((err, req, res, next) => {
   next(err)
 })
 
-app.post('/register-purchase', validateRequest, validateTito, function (req, res) {
-  console.log(req.body);
-
-  res.send('ok')
-})
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`))

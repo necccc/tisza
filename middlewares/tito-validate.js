@@ -22,7 +22,7 @@ module.exports = (request, response, next) => {
   const pass = (signature === hmac)
 
   if (!pass) {
-    throw boom.unauthorized('invalid token')
+    next(boom.unauthorized('invalid token'))
   }
 
   return next(null)
