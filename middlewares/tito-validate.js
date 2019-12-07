@@ -16,12 +16,11 @@ module.exports = (request, response, next) => {
     type,
     signature,
     hmac,
-    TITO_TOKEN
+    TITO_TOKEN,
+    body: JSON.stringify(request.body),
   });
 
-  const pass = (signature === hmac)
-
-  if (!pass) {
+  if (signature !== hmac) {
     next(boom.unauthorized('invalid token'))
   }
 
