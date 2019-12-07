@@ -4,15 +4,13 @@ require('dotenv').config()
 
 const { PORT = 8000 } = process.env
 const express = require('express')
+const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const validateTito = require('./middlewares/tito-validate')
 const validateRequest = require('./middlewares/request-validate')
 const app = express()
 
-// parse application/x-www-form-urlencoded
-//app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
+app.use(helmet())
 app.use(bodyParser.json())
 
 app.post('/register-purchase', validateRequest, validateTito, function (req, res) {
