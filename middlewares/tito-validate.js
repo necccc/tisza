@@ -4,15 +4,22 @@ const boom = require('boom');
 const { TITO_TOKEN } = process.env
 
 module.exports = (request, response, next) => {
+  const type = request.headers['x-webhook-name']
   const signature = request.headers['tito-signature']
-  const hmac = crypto.createHmac('sha256', TITO_TOKEN);
-	hmac.update(JSON.stringify(request.body));
 
+  const hmac = crypto
+    .createHmac('sha256', TITO_TOKEN)
+    .update(JSON.stringify(request.body))
+    .digest('base64')
 
-  console.log(signature);
-  console.log(hmac.digest('base64'));
+  console.log({
+    type,
+    signature,
+    hmac,
+    TITO_TOKEN
+  });
 
-  const pass = (signature === hmac.digest('base64'))
+  const pass = (signature === hmac)
 
   if (!pass) {
     throw boom.unauthorized('invalid token')
