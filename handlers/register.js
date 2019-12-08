@@ -30,7 +30,9 @@ const createErrorMessage = (registration, error) => {
 
 module.exports = async (req, res) => {
   const {
-    payment_provider,
+    receipt: {
+      payment_provider,
+    },
     event: {
       account_slug,
       slug: event_slug
