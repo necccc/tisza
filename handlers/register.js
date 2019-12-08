@@ -3,7 +3,30 @@ const getBuyer = require('../lib/get-buyer')
 const getSeller = require('../lib/get-seller')
 const getInvoiceItems = require('../lib/get-invoice-items')
 const createInvoice = require('../lib/create-invoice')
+const sendMail = require('../lib/send-mail')
 const eventConfig = require('../events.config')
+
+const createErrorMessage = (registration, error) => {
+  const message = `
+    Error:
+      ${error.message}
+
+    Event: ${registration.event.slug}
+    Reference: ${registration.reference}
+    Created at: ${registration.created_at}
+
+    Billing info:
+      ${registration.billing_address.company_name}
+      ${registration.billing_address.vat_number}
+      ${registration.billing_address.address}
+      ${registration.billing_address.city}
+      ${registration.billing_address.country_name}
+
+    Total: ${registration.total}
+  `
+
+  return message
+}
 
 module.exports = async (req, res) => {
   const {
@@ -40,9 +63,14 @@ module.exports = async (req, res) => {
       items
     })
 
+    //await sendMail('Incoice created!', createErrorMessage(req.body, { message: result.invoiceId }))
+
     res.send(result.invoiceId)
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+
+    console.log(error);
+    await sendMail('Incoice creation failed', createErrorMessage(req.body, error))
+
 
     res.send('Error')
   }
