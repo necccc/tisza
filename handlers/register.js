@@ -30,7 +30,7 @@ const createErrorMessage = (registration, error) => {
 
 module.exports = async (req, res) => {
   const {
-    payment_reference,
+    payment_provider,
     event: {
       account_slug,
       slug: event_slug
@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
   } = req.body
   const event = eventConfig[event_slug]
 
-  if (!payment_reference) {
+  if (!payment_provider) {
     res.send('No payment, no invoice')
     return;
   }
