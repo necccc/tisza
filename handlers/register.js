@@ -30,6 +30,7 @@ const createErrorMessage = (registration, error) => {
 
 module.exports = async (req, res) => {
   const {
+    payment_reference,
     event: {
       account_slug,
       slug: event_slug
@@ -37,6 +38,11 @@ module.exports = async (req, res) => {
     slug: registration_slug
   } = req.body
   const event = eventConfig[event_slug]
+
+  if (!payment_reference) {
+    res.send('No payment, no invoice')
+    return;
+  }
 
   try {
     const titoRequest = await axios.get(
