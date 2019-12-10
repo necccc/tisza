@@ -12,7 +12,7 @@ module.exports = (request, response, next) => {
 
   if (signature !== hmac) {
     // next(new errors.UnauthorizedError('invalid token'))
-    console.warn('Tito signature STILL CANNOT BE VERIFIED')
+    console.warn(`Tito signature STILL CANNOT BE VERIFIED "${signature}"`)
   }
 
   return next(null)
