@@ -1,38 +1,62 @@
 module.exports = {
   'reinforce-conf-2020': {
     label: "Reinforce Conference 2020",
-    date: '2020. March 12',
-    invoiceIdPrefix: "",
+    date: 'April 6-7, 2020',
+    invoiceIdPrefix: "RF",
     email: {
-      replyToAddress: 'team@jsconfbp.com',
+      replyToAddress: 'hello@reinforceconf.com',
       subject: 'Your invoice for Reinforce Conference 2020',
-      message: 'Please find your invoice for your Reinforce Conference 2020 ticket purchase.'
+      message: `Dear Attendee!
+
+Thank you for taking part in Reinforce AI Conference 2020.
+
+Please find attached our official invoice for the Reinforce AI conference.
+In case you have an issue with the invoice please reply to this e-mail.
+In case you have a general question regarding the conference please write to: hello@reinforceconf.com
+
+The Reinforce conference team`
     },
     cateringOf: (ticket) => {
       return 45.4
     },
   },
   'jsconf-budapest-2020': {
-    date: '2020. September 24-25',
     label: "JSConf Budapest 2020",
-    invoiceIdPrefix: "",
+    date: 'September 24-25, 2020',
+    invoiceIdPrefix: "JSCBP",
     email: {
       replyToAddress: 'team@jsconfbp.com',
       subject: 'Your invoice for JSConf Budapest 2020',
-      message: 'Please find your invoice for your JSConf Budapest 2020 ticket purchase.'
+      message: `Dear Attendee!
+
+Thank you for purchasing tickets for JSConf Budapest 2020.
+
+Please find attached our official invoice for the conference.
+In case you have an issue with the invoice, or you have a general question
+regarding the conference please write to: team@jsconfbp.com
+
+The JSConf Budapest team`
     },
     cateringOf: (ticket) => {
       return 98
     },
   },
   'integration-test-event-2020': {
-    date: '2020. September 24-25',
     label: "JSConf Budapest 2020",
-    invoiceIdPrefix: "",
+    date: 'September 24-25, 2020',
+    invoiceIdPrefix: "WIPAO",
     email: {
       replyToAddress: 'nec@jsconfbp.com',
       subject: 'Your invoice for Integration Test Event 2020',
-      message: 'Please find your invoice for your Integration Test Event 2020 ticket purchase.'
+      message: `Dear Attendee!
+
+Thank you for taking part in Reinforce AI Conference 2020.
+
+Please find attached our official invoice for the Reinforce AI conference.
+In case you have an issue with the invoice please reply to this e-mail.
+In case you have a general question regarding the conference please write to: hello@reinforceconf.com
+
+The Reinforce conference team`
     },
     cateringOf: (ticket) => {
       return 45.4

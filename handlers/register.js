@@ -64,8 +64,9 @@ module.exports = async (req, res) => {
     const items = getInvoiceItems(event, order)
 
     const result = await createInvoice({
-      comment: `Conference date: ${event.date}.\n The invoice includes mediated services.`,
+      comment: `The invoice includes mediated services.\n This document was issued electronically and is therefore valid without signature.`,
       orderNumber: order.reference,
+      invoiceIdPrefix: event.invoiceIdPrefix,
       buyer,
       seller,
       items
@@ -75,12 +76,9 @@ module.exports = async (req, res) => {
 
     res.send(result.invoiceId)
   } catch (error) {
-
     console.log(error);
     await sendMail('Incoice creation failed', createErrorMessage(req.body, error))
 
-
     res.send('Error')
   }
-
 }
