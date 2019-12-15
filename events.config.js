@@ -1,5 +1,5 @@
 module.exports = {
-  'reinforce-conf-2020': {
+  'reinforce2020': {
     label: "Reinforce Conference 2020",
     date: 'April 6-7, 2020',
     invoiceIdPrefix: "RF",

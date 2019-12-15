@@ -74,7 +74,7 @@ module.exports = async (req, res) => {
 
     //await sendMail('Incoice created!', createErrorMessage(req.body, { message: result.invoiceId }))
 
-    res.send(result.invoiceId)
+    res.send(result)
   } catch (error) {
     console.log(error);
     await sendMail('Incoice creation failed', createErrorMessage(req.body, error))
