@@ -5,6 +5,7 @@ module.exports = {
     label: "Reinforce Conference 2020",
     date: 'April 6-7, 2020',
     invoiceIdPrefix: "RF",
+    logoExtra: "RF-szamlazzhu.png",
     email: {
       replyToAddress: 'hello@reinforceconf.com',
       subject: 'Your invoice for Reinforce Conference 2020',
@@ -18,6 +19,10 @@ In case you have a general question regarding the conference please write to: he
 
 The Reinforce conference team`
     },
+    bank: {
+      name: "Raiffeisen Bank, SWIFT: UBRTHUHB",
+      accountNumber: "HU73-1201-0659-0160-2199-0040-0002"
+    },
     cateringOf: (ticket) => {
       return 47.24
     },
@@ -29,6 +34,7 @@ The Reinforce conference team`
     label: "JSConf Budapest 2020",
     date: 'September 24-25, 2020',
     invoiceIdPrefix: "JSCBP",
+    logoExtra: "JSCBP-szamlazzhu.png",
     email: {
       replyToAddress: 'team@jsconfbp.com',
       subject: 'Your invoice for JSConf Budapest 2020',
@@ -42,6 +48,10 @@ regarding the conference please write to: team@jsconfbp.com
 
 The JSConf Budapest team`
     },
+    bank: {
+      name: "Raiffeisen Bank, SWIFT: UBRTHUHB",
+      accountNumber: "HU18-1201-0659-0160-2199-0020-0008"
+    },
     cateringOf: (ticket) => {
       return 98
     },
@@ -53,6 +63,7 @@ The JSConf Budapest team`
     label: "JSConf Budapest 2020",
     date: 'September 24-25, 2020',
     invoiceIdPrefix: "WIPAO",
+    logoExtra: "JSCBP-szamlazzhu.png",
     email: {
       replyToAddress: 'nec@jsconfbp.com',
       subject: 'Your invoice for Integration Test Event 2020',
@@ -65,6 +76,10 @@ In case you have an issue with the invoice please reply to this e-mail.
 In case you have a general question regarding the conference please write to: hello@reinforceconf.com
 
 The Reinforce conference team`
+    },
+    bank: {
+      name: "Raiffeisen Bank, SWIFT: UBRTHUHB",
+      accountNumber: "HU18-1201-0659-0160-2199-0020-0008"
     },
     cateringOf: (ticket) => {
       return 45.4
