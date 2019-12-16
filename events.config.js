@@ -1,4 +1,6 @@
 module.exports = {
+
+
   'reinforce2020': {
     label: "Reinforce Conference 2020",
     date: 'April 6-7, 2020',
@@ -17,9 +19,12 @@ In case you have a general question regarding the conference please write to: he
 The Reinforce conference team`
     },
     cateringOf: (ticket) => {
-      return 45.4
+      return 47.24
     },
   },
+
+
+
   'jsconf-budapest-2020': {
     label: "JSConf Budapest 2020",
     date: 'September 24-25, 2020',
@@ -41,6 +46,9 @@ The JSConf Budapest team`
       return 98
     },
   },
+
+
+
   'integration-test-event-2020': {
     label: "JSConf Budapest 2020",
     date: 'September 24-25, 2020',
