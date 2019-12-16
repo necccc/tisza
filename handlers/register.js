@@ -64,7 +64,7 @@ module.exports = async (req, res) => {
     const items = getInvoiceItems(event, order)
 
     const result = await createInvoice({
-      comment: `The invoice includes mediated services.\n This document was issued electronically and is therefore valid without signature.`,
+      comment: `The invoice includes mediated services. \nThis document was issued electronically and is therefore valid without signature. \nPaid in full.`,
       orderNumber: order.reference,
       invoiceIdPrefix: event.invoiceIdPrefix,
       buyer,
