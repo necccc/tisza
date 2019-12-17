@@ -70,6 +70,7 @@ module.exports = async (req, res) => {
       comment: `The invoice includes mediated services. \nThis document was issued electronically and is therefore valid without signature. \nPaid in full.`,
       orderNumber: order.reference,
       invoiceIdPrefix: event.invoiceIdPrefix,
+      logoExtra: event.logoExtra,
       buyer,
       seller,
       items
