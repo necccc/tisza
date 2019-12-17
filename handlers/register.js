@@ -5,31 +5,7 @@ const getInvoiceItems = require('../lib/get-invoice-items')
 const createInvoice = require('../lib/create-invoice')
 const sendMail = require('../lib/send-mail')
 const eventConfig = require('../events.config')
-
-const createErrorMessage = (registration, error) => {
-  const message = `
-    Error:
-      ${error.message}
-
-    Webhook logs:
-      https://api.tito.io/${registration.event.account_slug}/${registration.event.slug}/webhooks
-
-    Event: ${registration.event.slug}
-    Reference: ${registration.reference}
-    Created at: ${registration.created_at}
-
-    Billing info:
-      ${registration.billing_address.company_name}
-      ${registration.billing_address.vat_number}
-      ${registration.billing_address.address}
-      ${registration.billing_address.city}
-      ${registration.billing_address.country_name}
-
-    Total: ${registration.total}
-  `
-
-  return message
-}
+const createErrorMessage = require('../lib/create-error-email')
 
 module.exports = async (req, res) => {
   const {
@@ -42,6 +18,7 @@ module.exports = async (req, res) => {
     },
     slug: registration_slug
   } = req.body
+
   const event = eventConfig[event_slug]
 
   if (!payment_provider) {
@@ -62,26 +39,23 @@ module.exports = async (req, res) => {
 
     const order = titoRequest.data.registration
 
-    const seller = getSeller(event, order)
-    const buyer = getBuyer(event, order)
-    const items = getInvoiceItems(event, order)
-
     const result = await createInvoice({
       comment: `The invoice includes mediated services. \nThis document was issued electronically and is therefore valid without signature. \nPaid in full.`,
       orderNumber: order.reference,
       invoiceIdPrefix: event.invoiceIdPrefix,
-      logoExtra: event.logoExtra,
-      buyer,
-      seller,
-      items
+      logoImage: event.logoImage,
+      buyer: getBuyer(event, order),
+      seller: getSeller(event, order),
+      items: getInvoiceItems(event, order)
     })
-
-    //await sendMail('Incoice created!', createErrorMessage(req.body, { message: result.invoiceId }))
 
     res.send(result)
   } catch (error) {
+    await sendMail(
+      'ERROR: Invoice creation failed',
+      createErrorMessage(req.body, error)
+    )
     console.log(error);
-    await sendMail('Incoice creation failed', createErrorMessage(req.body, error))
 
     res.send('Error')
   }
