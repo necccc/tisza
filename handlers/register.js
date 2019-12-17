@@ -11,6 +11,9 @@ const createErrorMessage = (registration, error) => {
     Error:
       ${error.message}
 
+    Webhook logs:
+      https://api.tito.io/${registration.event.account_slug}/${registration.event.slug}/webhooks
+
     Event: ${registration.event.slug}
     Reference: ${registration.reference}
     Created at: ${registration.created_at}
