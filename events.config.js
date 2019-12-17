@@ -5,7 +5,7 @@ module.exports = {
     label: "Reinforce Conference 2020",
     date: 'April 6-7, 2020',
     invoiceIdPrefix: "RF",
-    logoExtra: "RF-szamlazzhu.png",
+    logoImage: "RF-szamlazzhu.png",
     email: {
       replyToAddress: 'hello@reinforceconf.com',
       subject: 'Your invoice for Reinforce Conference 2020',
@@ -34,7 +34,7 @@ The Reinforce conference team`
     label: "JSConf Budapest 2020",
     date: 'September 24-25, 2020',
     invoiceIdPrefix: "JSCBP",
-    logoExtra: "JSCBP-szamlazzhu.png",
+    logoImage: "JSCBP-szamlazzhu.png",
     email: {
       replyToAddress: 'team@jsconfbp.com',
       subject: 'Your invoice for JSConf Budapest 2020',
@@ -63,7 +63,7 @@ The JSConf Budapest team`
     label: "JSConf Budapest 2020",
     date: 'September 24-25, 2020',
     invoiceIdPrefix: "WIPAO",
-    logoExtra: "JSCBP-szamlazzhu.png",
+    logoImage: "JSCBP-szamlazzhu.png",
     email: {
       replyToAddress: 'nec@jsconfbp.com',
       subject: 'Your invoice for Integration Test Event 2020',

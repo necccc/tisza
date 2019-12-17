@@ -29,6 +29,7 @@
     "restify": "^8.5.0",
     "restify-errors": "^8.0.1",
     "round-to": "^4.0.0",
-    "szamlazz.js": "./szamlazz"
+    "szamlazz.js": "./szamlazz",
+    "yaml": "^1.7.2"
   }
 }
