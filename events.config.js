@@ -23,7 +23,11 @@ The Reinforce conference team`
       name: "Raiffeisen Bank, SWIFT: UBRTHUHB",
       accountNumber: "HU73-1201-0659-0160-2199-0040-0002"
     },
-    cateringOf: (ticket) => {
+    cateringOf: (ticketName) => {
+      if (ticketName.includes('Diversity')) {
+        return 47.24 * 2
+      }
+
       return 47.24
     },
   },
