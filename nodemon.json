@@ -1,5 +1,12 @@
 {
-  "ignore": [
-  ],
-  "delay": "1000"
+  "delay": "1000",
+  "watch": [
+    "lib/",
+    "handlers/",
+    "middlewares/",
+    "szamlazz/",
+    "events.config.js",
+    "index.js",
+    ".env"
+  ]
 }
