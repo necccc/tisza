@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
     const order = titoRequest.data.registration
 
     const result = await createInvoice({
-      comment: `The invoice includes mediated services. \nPaid in full.`,
+      comment: `The invoice includes mediated services. \nPaid in full. \nThis document was issued electronically and is therefore valid without signature.`,
       orderNumber: order.reference,
       invoiceIdPrefix: event.invoiceIdPrefix,
       logoImage: event.logoImage,
