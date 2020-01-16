@@ -24,8 +24,13 @@ The Reinforce conference team`
       accountNumber: "HU73-1201-0659-0160-2199-0040-0002"
     },
     cateringOf: (ticketName) => {
+      // NET catering prices
       if (ticketName.includes('Diversity')) {
         return 47.24 * 2
+      }
+
+      if (ticketName.includes('Workshop')) {
+        return 23.62
       }
 
       return 47.24
@@ -57,6 +62,7 @@ The JSConf Budapest team`
       accountNumber: "HU18-1201-0659-0160-2199-0020-0008"
     },
     cateringOf: (ticket) => {
+      // NET catering prices
       return 98
     },
   },
@@ -86,6 +92,7 @@ The Reinforce conference team`
       accountNumber: "HU18-1201-0659-0160-2199-0020-0008"
     },
     cateringOf: (ticket) => {
+      // NET catering prices
       return 45.4
     },
   },
