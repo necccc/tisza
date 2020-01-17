@@ -4,6 +4,12 @@ module.exports = {
   'reinforce2020': {
     label: "Reinforce Conference 2020",
     date: 'April 6-7, 2020',
+    getDate: (ticketName) => {
+      if (ticketName.includes('Workshop')) {
+        return 'April 8, 2020';
+      }
+      return 'April 6-7, 2020';
+    },
     invoiceIdPrefix: "RF",
     logoImage: "RF-szamlazzhu.png",
     email: {
@@ -23,7 +29,7 @@ The Reinforce conference team`
       name: "Raiffeisen Bank, SWIFT: UBRTHUHB",
       accountNumber: "HU73-1201-0659-0160-2199-0040-0002"
     },
-    cateringOf: (ticketName) => {
+    getCateringOf: (ticketName) => {
       // NET catering prices
       if (ticketName.includes('Diversity')) {
         return 47.24 * 2
@@ -42,6 +48,9 @@ The Reinforce conference team`
   'jsconf-budapest-2020': {
     label: "JSConf Budapest 2020",
     date: 'September 24-25, 2020',
+    getDate: (ticketName) => {
+      return 'September 24-25, 2020';
+    },
     invoiceIdPrefix: "JSCBP",
     logoImage: "JSCBP-szamlazzhu.png",
     email: {
@@ -61,7 +70,7 @@ The JSConf Budapest team`
       name: "Raiffeisen Bank, SWIFT: UBRTHUHB",
       accountNumber: "HU18-1201-0659-0160-2199-0020-0008"
     },
-    cateringOf: (ticket) => {
+    getCateringOf: (ticket) => {
       // NET catering prices
       return 98
     },
@@ -72,6 +81,9 @@ The JSConf Budapest team`
   'integration-test-event-2020': {
     label: "JSConf Budapest 2020",
     date: 'September 24-25, 2020',
+    getDate: (ticketName) => {
+      return 'September 24-25, 2020';
+    },
     invoiceIdPrefix: "WIPAO",
     logoImage: "JSCBP-szamlazzhu.png",
     email: {
@@ -91,7 +103,7 @@ The Reinforce conference team`
       name: "Raiffeisen Bank, SWIFT: UBRTHUHB",
       accountNumber: "HU18-1201-0659-0160-2199-0020-0008"
     },
-    cateringOf: (ticket) => {
+    getCateringOf: (ticket) => {
       // NET catering prices
       return 45.4
     },
