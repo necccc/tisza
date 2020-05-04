@@ -45,20 +45,20 @@ The Reinforce conference team`
 
 
 
-  'jsconf-budapest-2020': {
-    label: "JSConf Budapest 2020",
-    date: 'September 24-25, 2020',
+  'jsconf-budapest-2021': {
+    label: "JSConf Budapest 2021",
+    date: 'September 23-24, 2021',
     getDate: (ticketName) => {
-      return 'September 24-25, 2020';
+      return 'September 23-24, 2021';
     },
     invoiceIdPrefix: "JSCBP",
     logoImage: "JSCBP-szamlazzhu.png",
     email: {
       replyToAddress: 'team@jsconfbp.com',
-      subject: 'Your invoice for JSConf Budapest 2020',
+      subject: 'Your invoice for JSConf Budapest 2021',
       message: `Dear Attendee!
 
-Thank you for purchasing tickets for JSConf Budapest 2020.
+Thank you for purchasing tickets for JSConf Budapest 2021.
 
 Please find attached our official invoice for the conference.
 In case you have an issue with the invoice, or you have a general question
