@@ -1,5 +1,9 @@
-module.exports = {
+const {
+  TITO_TOKEN_JS,
+  TITO_TOKEN_RF,
+} = process.env
 
+module.exports = {
 
   'reinforce2020': {
     label: "Reinforce Conference 2020",
@@ -41,8 +45,8 @@ The Reinforce conference team`
 
       return 47.24
     },
+    titoToken: TITO_TOKEN_RF
   },
-
 
 
   'jsconf-budapest-2021': {
@@ -74,6 +78,7 @@ The JSConf Budapest team`
       // NET catering prices
       return 98
     },
+    titoToken: TITO_TOKEN_JS
   },
 
 
@@ -107,5 +112,6 @@ The Reinforce conference team`
       // NET catering prices
       return 45.4
     },
+    titoToken: TITO_TOKEN_JS
   },
 }

@@ -1,15 +1,6 @@
 const crypto = require('crypto');
 const errors = require('restify-errors');
-const {
-  TITO_TOKEN_JS,
-  TITO_TOKEN_RF,
-} = process.env
-
-const tokens = {
-  'integration-test-event-2020': TITO_TOKEN_JS,
-  'jsconf-budapest-2020': TITO_TOKEN_JS,
-  'reinforce2020':  TITO_TOKEN_RF,
-}
+const eventsConfig = require('../events.config')
 
 module.exports = (request, response, next) => {
   const signature = request.headers['tito-signature']
@@ -23,7 +14,7 @@ module.exports = (request, response, next) => {
     .replace(/\n/g, '\\' + 'n')
 
   const hmac = crypto
-    .createHmac('sha256', tokens[event])
+    .createHmac('sha256', eventsConfig[event].titoToken)
     .update(data)
     .digest('base64')
 
