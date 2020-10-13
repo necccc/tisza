@@ -1,11 +1,9 @@
-const YAML = require('yaml')
+const YAML = require('yaml');
 
 const safeLog = (error) => {
-  const message = YAML.stringify(
-    JSON.parse(JSON.stringify(error))
-  )
-  return message.replace(/token=.*$/gm,'REDACTED')
-}
+  const message = YAML.stringify(JSON.parse(JSON.stringify(error)));
+  return message.replace(/token=.*$/gm, 'REDACTED');
+};
 
 module.exports = (registration, error) => {
   const message = `
@@ -33,7 +31,7 @@ Total: ${registration.total}
 Complete error log:
 
 ${safeLog(error)}
-`
+`;
 
-  return message
-}
+  return message;
+};

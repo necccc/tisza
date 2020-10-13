@@ -10,13 +10,13 @@ module.exports = (event, order) => {
       country_name: country,
       vat_number,
       state_province_region: state = '',
-    }
-  } = order
+    },
+  } = order;
 
   const buyerName = company_name || name;
   const taxNumber = vat_number === '0' ? '' : vat_number;
 
-  const addressWithState = `${address.replace(/[\r]?\n/g, ' ')} ${state}`
+  const addressWithState = `${address.replace(/[\r]?\n/g, ' ')} ${state}`;
 
   return {
     name: buyerName,
@@ -31,11 +31,10 @@ module.exports = (event, order) => {
       name: buyerName,
       zip,
       city,
-      address: addressWithState
+      address: addressWithState,
     },
-    issuerName: '',
     identifier: 1,
     phone: '',
     issuerName: name,
-  }
-}
+  };
+};

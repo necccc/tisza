@@ -1,11 +1,11 @@
-const axios = require('axios')
-const getBuyer = require('../lib/get-buyer')
-const getSeller = require('../lib/get-seller')
-const getInvoiceItems = require('../lib/get-invoice-items')
-const createInvoice = require('../lib/create-invoice')
-const sendMail = require('../lib/send-mail')
-const eventConfig = require('../events.config')
-const createErrorMessage = require('../lib/create-error-email')
+const axios = require('axios');
+const getBuyer = require('../lib/get-buyer');
+const getSeller = require('../lib/get-seller');
+const getInvoiceItems = require('../lib/get-invoice-items');
+const createInvoice = require('../lib/create-invoice');
+const sendMail = require('../lib/send-mail');
+const eventConfig = require('../events.config');
+const createErrorMessage = require('../lib/create-error-email');
 
 module.exports = async (req, res) => {
   const {
@@ -14,15 +14,15 @@ module.exports = async (req, res) => {
     },
     event: {
       account_slug,
-      slug: event_slug
+      slug: event_slug,
     },
-    slug: registration_slug
-  } = req.body
+    slug: registration_slug,
+  } = req.body;
 
-  const event = eventConfig[event_slug]
+  const event = eventConfig[event_slug];
 
   if (!payment_provider) {
-    res.send('No payment, no invoice')
+    res.send('No payment, no invoice');
     return;
   }
 
@@ -33,11 +33,11 @@ module.exports = async (req, res) => {
         headers: {
           Authorization: `Token token=${process.env.TITO_API_TOKEN}`,
           Accept: 'application/json',
-        }
+        },
       }
-    )
+    );
 
-    const order = titoRequest.data.registration
+    const order = titoRequest.data.registration;
 
     const result = await createInvoice({
       comment: `The invoice includes mediated services. \nPaid in full. \nThis document was issued electronically and is therefore valid without signature.`,
@@ -46,17 +46,17 @@ module.exports = async (req, res) => {
       logoImage: event.logoImage,
       buyer: getBuyer(event, order),
       seller: getSeller(event, order),
-      items: getInvoiceItems(event, order)
-    })
+      items: getInvoiceItems(event, order),
+    });
 
-    res.send(result)
+    res.send(result);
   } catch (error) {
     await sendMail(
       'ERROR: Invoice creation failed',
       createErrorMessage(req.body, error)
-    )
+    );
     console.log(error);
 
-    res.send('Error')
+    res.send('Error');
   }
-}
+};
