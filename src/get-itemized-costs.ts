@@ -24,6 +24,7 @@ export default (tickets, eventConfig) => tickets.reduce((items, ticket) => {
       grossUnitPrice: ticketPartial, // calculates gross and net values from per item net
       comment: `Ticket for ${eventConfig.label}, ${date}`,
     });
+
     items.push({
       label: 'Conference catering fee',
       quantity,
