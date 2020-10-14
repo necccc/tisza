@@ -2,13 +2,14 @@
   "name": "tito-szamlazzhu",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint --ext ts src",
     "test": "jest src",
     "build": "rm -rf ./build && tsc",
     "coverage": "jest --coverage",
-    "dev": "npx nodemon dist/index.js",
+    "watch": "nodemon",
+    "dev": "node -r ts-node/register src/index.ts",
     "start": "node dist/index.js"
   },
   "repository": {
@@ -25,10 +26,9 @@
   "dependencies": {
     "axios": "^0.20.0",
     "dotenv": "^8.2.0",
+    "fastify": "^3.6.0",
     "form-data": "^3.0.0",
     "mailgun-js": "^0.22.0",
-    "restify": "^8.5.0",
-    "restify-errors": "^8.0.1",
     "round-to": "^4.0.0",
     "szamlazz.js": "^4.1.0",
     "yaml": "^1.7.2"
@@ -42,6 +42,7 @@
     "jest": "^26.0.1",
     "nodemon": "^2.0.1",
     "ts-jest": "^26.4.1",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.3"
   },
   "jest": {
@@ -53,5 +54,19 @@
       "<rootDir>/dist/",
       "<rootDir>/szamlazz/"
     ]
+  },
+  "nodemonConfig": {
+    "delay": "1000",
+    "exec": "npm run dev",
+    "watch": [
+      "src/",
+      "events.config.js",
+      ".env"
+    ],
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts"
+    ],
+    "ext": "ts"
   }
 }
