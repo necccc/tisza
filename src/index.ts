@@ -18,10 +18,8 @@ server.register(sensible)
 server.register(helmet)
 server.register(rawBody)
 
-server.post('/', async () => ({ hello: 'world' }));
-
-
-
+server.addHook('preHandler', validateRequest)
+server.addHook('preHandler', validateTitoPayload)
 server.addHook('preHandler', async (request, reply) => {
   //console.log('pre-handling', request)
 
@@ -30,8 +28,7 @@ server.addHook('preHandler', async (request, reply) => {
   return
 })
 
-server.addHook('preHandler', validateRequest)
-server.addHook('preHandler', validateTitoPayload)
+server.post('/register-purchase/', async () => ({ hello: 'world' }));
 
 const start = async () => {
   try {

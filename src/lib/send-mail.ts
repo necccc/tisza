@@ -5,7 +5,7 @@ const {
   MAILGUN_DOMAIN,
 } = process.env;
 
-const mg = mailgun({ apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN });
+const mailgunInstance = mailgun({ apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN });
 
 export default (subject, text) => {
   const data = {
@@ -15,7 +15,7 @@ export default (subject, text) => {
     text,
   };
 
-  mg.messages().send(data, (error, body) => {
+  mailgunInstance.messages().send(data, (error, body) => {
     if (error) {
       console.log(error);
       return;

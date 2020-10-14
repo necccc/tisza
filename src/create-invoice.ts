@@ -1,7 +1,9 @@
 // import YAML from 'yaml';
+
+import createClient from './szamlazzhu/create-client'
 import szamlazz from 'szamlazz.js';
-import sendMail from './send-mail';
-import debugXML from './debug-xml';
+import sendMail from './lib/send-mail';
+import debugXML from './lib/debug-xml';
 
 const client = new szamlazz.Client({
   authToken: process.env.SZAMLAZZ_TOKEN,

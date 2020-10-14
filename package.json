@@ -25,6 +25,7 @@
   "homepage": "https://github.com/jssc-eu/tito-szamlazzhu#readme",
   "dependencies": {
     "axios": "^0.20.0",
+    "dedent": "^0.7.0",
     "dotenv": "^8.2.0",
     "fastify": "^3.6.0",
     "fastify-helmet": "^5.0.3",

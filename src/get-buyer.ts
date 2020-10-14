@@ -1,4 +1,4 @@
-module.exports = (event, order) => {
+module.exports = (order) => {
   const {
     name,
     email,
