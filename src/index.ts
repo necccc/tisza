@@ -1,22 +1,43 @@
 /* eslint-disable no-process-exit, require-await */
 'use strict';
-import dotenv from 'dotenv';
+import fastify from 'fastify';
+import sensible from 'fastify-sensible'
+import helmet from 'fastify-helmet'
+import rawBody from 'fastify-raw-body'
 
-dotenv.config();
+import validateRequest from './hooks/validate-request'
+import validateTitoPayload from './hooks/validate-tito-payload'
 
 const { PORT = 8000 } = process.env;
 
-const fastify = require('fastify')({
+const server = fastify({
   logger: true,
 });
 
-fastify.get('/', async () => ({ hello: 'world' }));
+server.register(sensible)
+server.register(helmet)
+server.register(rawBody)
+
+server.post('/', async () => ({ hello: 'world' }));
+
+
+
+server.addHook('preHandler', async (request, reply) => {
+  //console.log('pre-handling', request)
+
+  console.log(request)
+
+  return
+})
+
+server.addHook('preHandler', validateRequest)
+server.addHook('preHandler', validateTitoPayload)
 
 const start = async () => {
   try {
-    await fastify.listen(PORT);
+    await server.listen(PORT);
   } catch (err) {
-    fastify.log.error(err);
+    server.log.error(err);
     process.exit(1);
   }
 };

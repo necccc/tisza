@@ -9,7 +9,7 @@
     "build": "rm -rf ./build && tsc",
     "coverage": "jest --coverage",
     "watch": "nodemon",
-    "dev": "node -r ts-node/register src/index.ts",
+    "dev": "node -r ts-node/register -r dotenv/config src/index.ts",
     "start": "node dist/index.js"
   },
   "repository": {
@@ -27,6 +27,9 @@
     "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "fastify": "^3.6.0",
+    "fastify-helmet": "^5.0.3",
+    "fastify-raw-body": "^3.0.0",
+    "fastify-sensible": "^3.0.1",
     "form-data": "^3.0.0",
     "mailgun-js": "^0.22.0",
     "round-to": "^4.0.0",
