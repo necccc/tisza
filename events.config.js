@@ -45,7 +45,8 @@ The Reinforce conference team`
 
       return 47.24
     },
-    titoToken: TITO_TOKEN_RF
+    titoToken: TITO_TOKEN_RF,
+    invoiceComment: `The invoice includes mediated services. \nPaid in full. \nThis document was issued electronically and is therefore valid without signature.`
   },
 
 
@@ -78,7 +79,8 @@ The JSConf Budapest team`
       // NET catering prices
       return 98
     },
-    titoToken: TITO_TOKEN_JS
+    titoToken: TITO_TOKEN_JS,
+    invoiceComment: `The invoice includes mediated services. \nPaid in full. \nThis document was issued electronically and is therefore valid without signature.`
   },
 
 
@@ -112,6 +114,7 @@ The Reinforce conference team`
       // NET catering prices
       return 45.4
     },
-    titoToken: TITO_TOKEN_JS
+    titoToken: TITO_TOKEN_JS,
+    invoiceComment: `The invoice includes mediated services. \nPaid in full. \nThis document was issued electronically and is therefore valid without signature.`
   },
 }

@@ -1,4 +1,4 @@
-module.exports = (event) => {
+export default (event) => {
   const { email, bank } = event;
 
   return { // everyting is optional

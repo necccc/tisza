@@ -7,14 +7,8 @@ export default async (request, reply) => {
     }
   } = request
 
-  if (typeof token == 'undefined') {
-    reply.badRequest()
-    return
-  }
-
   if (token !== APP_TOKEN) {
     reply.badRequest()
     return
   }
-
 };

@@ -1,4 +1,4 @@
-module.exports = (order) => {
+export default (order) => {
   const {
     name,
     email,
@@ -15,7 +15,6 @@ module.exports = (order) => {
 
   const buyerName = company_name || name;
   const taxNumber = vat_number === '0' ? '' : vat_number;
-
   const addressWithState = `${address.replace(/[\r]?\n/g, ' ')} ${state}`;
 
   return {

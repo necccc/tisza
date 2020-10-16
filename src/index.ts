@@ -7,6 +7,8 @@ import rawBody from 'fastify-raw-body'
 
 import validateRequest from './hooks/validate-request'
 import validateTitoPayload from './hooks/validate-tito-payload'
+import decorateEventConfig from './hooks/decorate-event-config'
+import register from './handlers/register'
 
 const { PORT = 8000 } = process.env;
 
@@ -16,10 +18,23 @@ const server = fastify({
 
 server.register(sensible)
 server.register(helmet)
-server.register(rawBody)
+server.register(rawBody, {
+  global: false,
+  runFirst: true
+})
 
-server.addHook('preHandler', validateRequest)
-server.addHook('preHandler', validateTitoPayload)
+server.decorateRequest('eventConfig', {})
+
+server.addSchema({
+  $id: 'titoSchema',
+  type: 'object',
+  required: [ 'token', 'tito-signature' ],
+  properties: {
+    token: { type: 'string' },
+    'tito-signature': { type: 'string' }
+  }
+})
+
 server.addHook('preHandler', async (request, reply) => {
   //console.log('pre-handling', request)
 
@@ -28,7 +43,35 @@ server.addHook('preHandler', async (request, reply) => {
   return
 })
 
-server.post('/register-purchase/', async () => ({ hello: 'world' }));
+server.route({
+  method: 'POST',
+  url: '/register-purchase',
+  config: {
+    rawBody: true
+  },
+  schema: {
+    querystring: {
+      type: 'object',
+      required: [ 'token' ],
+      properties: {
+        token: { type: 'string' },
+      }
+    },
+    headers: {
+      type: 'object',
+      required: ['tito-signature' ],
+      properties: {
+        'tito-signature': { type: 'string' }
+      }
+    },
+  },
+  preHandler: async (request, reply) => {
+    await decorateEventConfig(request, reply)
+    await validateRequest(request, reply)
+    await validateTitoPayload(request, reply)
+  },
+  handler: register
+});
 
 const start = async () => {
   try {
