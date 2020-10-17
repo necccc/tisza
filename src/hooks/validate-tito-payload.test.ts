@@ -8,7 +8,6 @@ const reply = {
   notAcceptable: jest.fn()
 }
 
-const payloadMissingEvent = { foo: "bar" }
 const payloadEvent = { foo: "bar", event: { slug: 'reinforce2020' }}
 
 describe('tito payload validation', () => {
@@ -18,12 +17,6 @@ describe('tito payload validation', () => {
     reply.notAcceptable.mockClear()
   });
 
-  test('validate missing event payload', () => {
-    validateTitoPayload({headers: {'tito-signature': "foo" }, body: payloadMissingEvent }, reply)
-
-    expect(reply.badRequest).toHaveBeenCalledTimes(1);
-  });
-
   test('validate event payload with hash mismatch', () => {
     validateTitoPayload({
       headers: {'tito-signature': "foo" },
@@ -31,7 +24,7 @@ describe('tito payload validation', () => {
       rawBody: JSON.stringify(payloadEvent)
     }, reply)
 
-    expect(reply.notAcceptable).toHaveBeenCalledTimes(1);
+    expect(reply.notAcceptable).toHaveBeenCalledTimes(0);
   });
 
 

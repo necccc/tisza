@@ -51,7 +51,7 @@ const tickets = [
     test_mode: true,
     release_id: 1219124,
     release_slug: 'qqtuetcorjg',
-    release_title: 'Early Workshop ticket',
+    release_title: 'Early Double ticket',
   },
   {
     _type: 'line_item',
@@ -137,6 +137,10 @@ const testEvents = {
       {
         'ticket-name-contains': "Double",
         'net-price': 180
+      },
+      {
+        'ticket-name-contains': "Workshop",
+        'net-price': 45
       }
     ]
   },
@@ -192,7 +196,7 @@ const testEvents = {
   },
 }
 
-describe('sets catering as separate item', () => {
+describe('catering', () => {
   test('create 2 items or every ticket type', () => {
     const items = getItemizedCosts([ tickets[0] ], testEvents.fixDateSingleCatering);
     expect(items).toHaveLength(2);
@@ -204,13 +208,10 @@ describe('sets catering as separate item', () => {
     expect(items[0].comment).toBe('Ticket for JSConf Budapest 2021, September 23, 2020');
     expect(items[1].label).toBe('Conference catering fee');
   });
-});
 
-describe('price rounding', () => {
   test('rounds prices to 2 digits', () => {
     const items = getItemizedCosts([ tickets[0] ], testEvents.fixDateSingleCatering);
 
-    console.log(items)
     expect(items[0].grossUnitPrice.toString().split('.')[1].length).toBe(2);
     expect(items[1].grossUnitPrice.toString().split('.')[1].length).toBe(2);
   });
@@ -220,32 +221,49 @@ describe('price rounding', () => {
 
     expect((items[0].grossUnitPrice + items[1].grossUnitPrice)).toBe(205);
   });
+
+  test('skip catering item if its free', () => {
+    const items = getItemizedCosts([ tickets[0], tickets[4] ], testEvents.fixDateFreeCatering);
+
+    expect(items).toHaveLength(3);
+    expect(items[2].grossUnitPrice).toBe(150);
+  })
+
+  test('skip items if they are free', () => {
+    const items = getItemizedCosts([ tickets[1], tickets[4] ], testEvents.fixDateFreeCatering);
+
+    expect(items).toHaveLength(1);
+    expect(items[0].grossUnitPrice).toBe(150);
+  })
+
+  test('multiple orders with different catering', () => {
+
+    const items = getItemizedCosts([ tickets[0], tickets[3] ], testEvents.fixDateMultipleCatering);
+
+    expect((items[0].grossUnitPrice + items[1].grossUnitPrice)).toBe(205);
+    expect((items[2].grossUnitPrice + items[3].grossUnitPrice)).toBe(450);
+  });
 });
-
-describe('skip catering item if its free', () => {
-
-})
-
-describe('skip items if they are free', () => {
-
-})
-
-describe('multiple orders with different catering', () => {
-
-})
-
 
 describe('event date', () => {
   test('determines date according to ticket name', () => {
     const items = getItemizedCosts([ tickets[2] ], testEvents.fixDateSingleCatering);
 
+    expect(items).toHaveLength(2);
     expect(items[0].label).toBe('Early Workshop ticket');
-    expect(items[0].comment).toBe('Ticket for JSConf Budapest 2020, September 23, 2020');
+    expect(items[0].comment).toBe('Ticket for JSConf Budapest 2021, September 23, 2020');
     expect(items[1].label).toBe('Conference catering fee');
   });
+
+  test('multiple orders with different date', () => {
+
+    const items = getItemizedCosts([ tickets[0], tickets[2] ], testEvents.multipleDateMultipleCatering);
+
+    expect(items).toHaveLength(4);
+    expect(items[0].comment).toBe('Ticket for JSConf Budapest 2021, April 6-7, 2020');
+    expect(items[2].comment).toBe('Ticket for JSConf Budapest 2021, April 8, 2020');
+  })
 });
 
 
-describe('multiple orders with different date', () => {
 
-})

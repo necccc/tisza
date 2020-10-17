@@ -1,10 +1,9 @@
-export default (ticket, prop, types) => {
-  const event = types.find(obj => {
+export default (ticketName, prop, data) => {
+  let resultObj = data.find(obj => ticketName.toLowerCase().includes(obj['ticket-name-contains'].toLowerCase()))
 
-    if (obj['ticket-name-contains'] === '*') return true;
+  if (typeof resultObj === 'undefined') {
+    resultObj = data.find(obj => obj['ticket-name-contains'] === '*')
+  }
 
-    return ticket.includes(obj['ticket-name-contains'])
-  })
-
-  return event[prop]
+  return resultObj[prop]
 }
