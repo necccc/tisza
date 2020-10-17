@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint --ext ts src",
-    "test": "jest src",
+    "test": "jest",
     "build": "rm -rf ./build && tsc",
     "coverage": "jest --coverage",
     "watch": "nodemon",
@@ -50,6 +50,7 @@
     "typescript": "^4.0.3"
   },
   "jest": {
+    "testMatch": ["<rootDir>/src/**/*.test.js", "<rootDir>/src/**/*.test.ts"],
     "transform": {
       "^.+\\.ts?$": "ts-jest"
     },
@@ -64,7 +65,7 @@
     "exec": "npm run dev",
     "watch": [
       "src/",
-      "events.config.js",
+      "events-config.yaml",
       ".env"
     ],
     "ignore": [

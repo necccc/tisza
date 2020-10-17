@@ -16,9 +16,9 @@ export default async (
   const items = getItems(config, order).map(item => new Item(item));
 
   const orderNumber = order.reference
-  const invoiceIdPrefix = config.invoiceIdPrefix
-  const logoImage = config.logoImage
-  const comment = config.invoiceComment
+  const invoiceIdPrefix = config.invoice['id-prefix']
+  const logoImage = config.invoice['logo-image']
+  const comment = config.invoice.comment
 
   return new Invoice({
     paymentMethod: szamlazz.PaymentMethod.PayPal,

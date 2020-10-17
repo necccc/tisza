@@ -5,8 +5,6 @@ import createInvoice from '../invoice/create'
 import errorHandler from '../error-handler'
 
 export default async (request, reply) => {
-
-  console.log(request.body)
   const {
     receipt: {
       payment_provider,
@@ -26,6 +24,9 @@ export default async (request, reply) => {
   try {
     const order = await getTitoOrder(account, event, registration, process.env.TITO_API_TOKEN)
     const invoice = await createInvoice(order, request.eventConfig)
+
+    console.log(invoice)
+
     const result = "foo"
     // const result = await sendInvoice(
     //   invoice,
