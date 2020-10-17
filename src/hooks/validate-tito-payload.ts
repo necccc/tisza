@@ -11,11 +11,11 @@ export default async (request, reply) => {
     .update(request.rawBody)
     .digest('base64');
 
-    if (signature !== hmac) {
-      reply.notAcceptable()
-      console.error(`Tito signature STILL CANNOT BE VERIFIED "${signature}"`);
-      console.error('hmac', hmac)
-      console.error('raw body', request.rawBody)
+  if (signature !== hmac) {
+    reply.notAcceptable()
+    console.error(`Tito signature STILL CANNOT BE VERIFIED "${signature}"`);
+    console.error('hmac', hmac)
+    console.error('raw body', request.rawBody)
     return
   }
 
