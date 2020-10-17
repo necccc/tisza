@@ -65,8 +65,7 @@ server.route({
 const start = async () => {
   try {
     const eventsConfig = await readConfig()
-
-    console.log(eventsConfig)
+    
     server.decorateRequest('eventsConfigList', eventsConfig.events)
 
     await server.listen(PORT, HOST);

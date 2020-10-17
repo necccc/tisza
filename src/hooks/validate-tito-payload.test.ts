@@ -21,10 +21,13 @@ describe('tito payload validation', () => {
     validateTitoPayload({
       headers: {'tito-signature': "foo" },
       body: payloadEvent,
-      rawBody: JSON.stringify(payloadEvent)
+      rawBody: JSON.stringify(payloadEvent),
+      eventConfig: {
+        titoToken: process.env.TITO_TOKEN_RF
+      }
     }, reply)
 
-    expect(reply.notAcceptable).toHaveBeenCalledTimes(0);
+    expect(reply.notAcceptable).toHaveBeenCalledTimes(1);
   });
 
 
@@ -37,7 +40,10 @@ describe('tito payload validation', () => {
     validateTitoPayload({
       headers: {'tito-signature': hmac },
       body: payloadEvent,
-      rawBody: JSON.stringify(payloadEvent)
+      rawBody: JSON.stringify(payloadEvent),
+      eventConfig: {
+        titoToken: process.env.TITO_TOKEN_RF
+      }
     }, reply)
 
     expect(reply.badRequest).toHaveBeenCalledTimes(0);
