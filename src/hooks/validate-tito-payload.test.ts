@@ -23,7 +23,7 @@ describe('tito payload validation', () => {
       body: payloadEvent,
       rawBody: JSON.stringify(payloadEvent),
       eventConfig: {
-        titoToken: process.env.TITO_TOKEN_RF
+        'tito-token': process.env.TITO_TOKEN_RF
       }
     }, reply)
 
@@ -42,7 +42,7 @@ describe('tito payload validation', () => {
       body: payloadEvent,
       rawBody: JSON.stringify(payloadEvent),
       eventConfig: {
-        titoToken: process.env.TITO_TOKEN_RF
+        'tito-token': process.env.TITO_TOKEN_RF
       }
     }, reply)
 

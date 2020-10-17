@@ -7,7 +7,7 @@ export default async (request, reply) => {
   const signature = request.headers['tito-signature'];
 
   const hmac = crypto
-    .createHmac('sha256', request.eventConfig.titoToken)
+    .createHmac('sha256', request.eventConfig['tito-token'])
     .update(request.rawBody)
     .digest('base64');
 
