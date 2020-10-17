@@ -50,7 +50,7 @@ events:
         date: "September 24-25, 2020"
     catering:
       - ticket-name-contains: "*"
-        net-price: 0
+        net-price: 40
     invoice:
       id-prefix: "WIPAO"
       logo-image: "JSCBP-szamlazzhu.png"

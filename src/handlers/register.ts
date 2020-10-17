@@ -25,14 +25,17 @@ export default async (request, reply) => {
     const order = await getTitoOrder(account, event, registration, process.env.TITO_API_TOKEN)
     const invoice = await createInvoice(order, request.eventConfig)
 
-    console.log(invoice)
+    if (process.env.NODE_ENV === 'production') {
+      const result = await sendInvoice(
+         invoice,
+         createClient()
+      );
+      reply.send(result);
+    } else {
+      reply.send(JSON.stringify(invoice));
+    }
 
-    const result = "foo"
-    // const result = await sendInvoice(
-    //   invoice,
-    //   createClient()
-    // );
-    reply.send(result);
+
   } catch (error) {
     await errorHandler('ERROR: Invoice creation failed', error, request);
     reply.internalServerError('Invoice creation failed')

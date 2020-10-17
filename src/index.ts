@@ -14,7 +14,11 @@ import decorateEventConfig from './hooks/decorate-event-config'
 import register from './handlers/register'
 
 
-const { PORT = 8000 } = process.env;
+const { 
+  PORT = 8000,
+  HOST = '0.0.0.0'
+} = process.env;
+
 
 const server = fastify({
   logger: true,
@@ -65,7 +69,7 @@ const start = async () => {
     console.log(eventsConfig)
     server.decorateRequest('eventsConfigList', eventsConfig.events)
 
-    await server.listen(PORT);
+    await server.listen(PORT, HOST);
   } catch (err) {
     server.log.error(err);
     process.exit(1);
