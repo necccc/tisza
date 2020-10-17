@@ -16,6 +16,7 @@ events:
         The invoice includes mediated services.
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
+      e-invoice: true  
     email:
       replyToAddress: "hello@reinforceconf.com"
       subject: "Your invoice for Reinforce Conference 2020"
@@ -58,6 +59,7 @@ events:
         The invoice includes mediated services.
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
+      e-invoice: false
     email:
       reply-to-address: "nec@jsconfbp.com"
       subject: "Your invoice for Integration Test Event 2020"
