@@ -41,7 +41,7 @@ events:
     bank:
       name: 'Raiffeisen Bank, SWIFT: UBRTHUHB'
       accountNumber: 'HU73-1201-0659-0160-2199-0040-0002'
-    tito-token-env: TITO_TOKEN_RF
+    tito-signature-validator-env: TITO_TOKEN_RF
 
 
   jsconf-budapest-2021:
@@ -77,7 +77,7 @@ events:
     bank:
       name: "Raiffeisen Bank, SWIFT: UBRTHUHB"
       accountNumber: "HU18-1201-0659-0160-2199-0020-0008"
-    tito-token-env: TITO_TOKEN_JS
+    tito-signature-validator-env: TITO_TOKEN_JS
 
 
   integration-test-event-2020:
@@ -119,5 +119,5 @@ events:
     bank:
       name: "Raiffeisen Bank, SWIFT: UBRTHUHB"
       account-number: "HU18-1201-0659-0160-2199-0020-0008"
-    tito-token-env: TITO_TOKEN_JS
+    tito-signature-validator-env: TITO_TOKEN_JS
 

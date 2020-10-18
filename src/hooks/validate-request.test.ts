@@ -1,4 +1,4 @@
-process.env.APP_TOKEN = "abcd1234"
+process.env.TITO_WEBHOOK_TOKEN = "abcd1234"
 
 import validateRequest from './validate-request'
 
@@ -9,8 +9,8 @@ const reply = {
 describe('request validation', () => {
 
   afterAll(() => {
-    process.env.APP_TOKEN = null
-    delete process.env.APP_TOKEN
+    process.env.TITO_WEBHOOK_TOKEN = null
+    delete process.env.TITO_WEBHOOK_TOKEN
   });
 
   beforeEach(() => {

@@ -1,4 +1,4 @@
-const { APP_TOKEN } = process.env;
+const { TITO_WEBHOOK_TOKEN } = process.env;
 
 export default async (request, reply) => {
   const {
@@ -7,7 +7,7 @@ export default async (request, reply) => {
     }
   } = request
 
-  if (token !== APP_TOKEN) {
+  if (token !== TITO_WEBHOOK_TOKEN) {
     reply.badRequest()
     return
   }

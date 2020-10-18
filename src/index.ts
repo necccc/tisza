@@ -5,16 +5,15 @@ import fastify from 'fastify';
 import sensible from 'fastify-sensible'
 import helmet from 'fastify-helmet'
 import rawBody from 'fastify-raw-body'
-import titoSchema from './tito/schema'
 
+import titoSchema from './tito/schema'
 import readConfig from './lib/read-config'
 import validateRequest from './hooks/validate-request'
 import validateTitoPayload from './hooks/validate-tito-payload'
 import decorateEventConfig from './hooks/decorate-event-config'
 import register from './handlers/register'
 
-
-const { 
+const {
   PORT = 8000,
   HOST = '0.0.0.0'
 } = process.env;

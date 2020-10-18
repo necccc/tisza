@@ -1,11 +1,11 @@
 import roundTo from 'round-to';
 import getCateringPerTicket from './get-catering-per-ticket';
-import getByTicketType from './get-property-by-ticket-type'
+import getPropertyByTicketType from './get-property-by-ticket-type'
 
 const getDate = (ticket, config) => {
   if (typeof config.dates === 'undefined') return config.date
 
-  return getByTicketType(ticket, 'date', config.dates)
+  return getPropertyByTicketType(ticket, 'date', config.dates)
 }
 
 export default (tickets, eventConfig) => tickets.reduce((items, ticket) => {
