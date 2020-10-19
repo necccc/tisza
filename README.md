@@ -24,6 +24,9 @@ This service, deployed on Heroku, sits between Ti.to and Szamlazz.hu. The chain 
 3. The service gets all requred data about the purchase from the Tito API
 4. The service creates an invoice XML and send it to Szamlazz.hu using [ewngs/szamlazz.js](https://github.com/ewngs/szamlazz.js)
 
+![](tisza-flowchart.svg)
+
+
 ## Caveats
 
 * This service handles purchases that are already paid via Paypal.
