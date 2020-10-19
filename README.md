@@ -30,9 +30,30 @@ This service, deployed on Heroku, sits between Ti.to and Szamlazz.hu. The chain 
 * Free tickets, or manually added tickets are ignored
 * Sends an email if some error happens
 * Uses the Heroku provided Mailgun service to send test and error emails
-* Can handle multiple events, check out the contents of `.env.example` and `events.config.js`
+* Can handle multiple events, check out the contents of `.env.example` and `events-config.yaml`
 
-## Configuration
+## Setup & Configuration
+
+- Clone the repo
+- Deploy it to your Heroku account using the tokens and secrets below
+
+Generate a random hash that you'll use as a webhook URL validation token.
+Add it to the app settings as an ENV variable `TITO_WEBHOOK_TOKEN`
+
+Get your webhook URL:
+
+`https://__YOUR_DEPLOYED_HEROKU_URL__/register-purchase?token=__TITO_WEBHOOK_TOKEN__`
+
+- Go to your Ti.to event `Dashboard > Settings > Webhook endpoints`
+- enter the webhook url you created above
+- check the `registration.finished` webhook event
+
+On the Webhook endpoints UI, you see a **Security token**, something like :
+
+> Your security token is `7AD1__________`. 
+
+Copy that token, and add it to the Heroku app settings as an environment variable, this will be the **webhook signature validator key**, to validate webhook payload content. **Make sure that this ENV variable name is the same as the `tito-signature-validator-env` field for your event in the `events-config.yaml`**
+
 
 ### ENV variables
 
@@ -40,11 +61,13 @@ See the `.env.example` file.
 
 #### Tito secrets and tokens
 
-- TITO_WEBHOOK_TOKEN
-- TITO_API_TOKEN
+- **TITO_WEBHOOK_TOKEN** the token that is sent in the `token` query parameter. This is just an additional layer of security
+- **TITO_API_TOKEN** the API token for your tito account, [see the relevant docs on Ti.to](https://ti.to/docs/api/admin#authentication)
 
 And the Tito webhook signature validator keys, which can be in any kind of ENV variable as long as it is
 referred properly with the `tito-signature-validator-env` field in the `events-config.yaml` config file.
+
+See the [Ti.to documentation on validating webhook payloads](https://ti.to/docs/api/admin#webhooks-payloads)
 
 #### Szamlazz.hu secrets
 
