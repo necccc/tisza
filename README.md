@@ -53,7 +53,7 @@ Get your webhook URL:
 
 On the Webhook endpoints UI, you see a **Security token**, something like :
 
-> Your security token is `7AD1__________`. 
+> Your security token is `7AD1__________`.
 
 Copy that token, and add it to the Heroku app settings as an environment variable, this will be the **webhook signature validator key**, to validate webhook payload content. **Make sure that this ENV variable name is the same as the `tito-signature-validator-env` field for your event in the `events-config.yaml`**
 
@@ -74,17 +74,25 @@ See the [Ti.to documentation on validating webhook payloads](https://ti.to/docs/
 
 #### Szamlazz.hu secrets
 
-- SZAMLAZZ_TOKEN
+- **SZAMLAZZ_TOKEN** the "Számla Agent" token from Szamlazz.hu
 
 #### Mailgun parameters
 
-- MAILGUN_API_KEY
-- MAILGUN_DOMAIN
-- MAILGUN_PUBLIC_KEY
-- MAILGUN_SMTP_LOGIN
-- MAILGUN_SMTP_PASSWORD
-- MAILGUN_SMTP_PORT=587
-- MAILGUN_SMTP_SERVER=smtp.mailgun.org
+These are set automatically if you set up Mailgun on Heroku
+
+- **MAILGUN_API_KEY**
+- **MAILGUN_DOMAIN**
+- **MAILGUN_PUBLIC_KEY**
+- **MAILGUN_SMTP_LOGIN**
+- **MAILGUN_SMTP_PASSWORD**
+- **MAILGUN_SMTP_PORT** Default: 587
+- **MAILGUN_SMTP_SERVER** Default: smtp.mailgun.org
+
+#### Error reporting
+
+- **ERROR_EMAIL_ADDRESS** the email address to send error reports
+
+**Note:** if you use the free, sandbox Mailgun integration, set this email as an authorized recipient
 
 ### events-config.yaml
 
