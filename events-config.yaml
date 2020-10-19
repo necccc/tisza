@@ -119,5 +119,5 @@ events:
     bank:
       name: "Raiffeisen Bank, SWIFT: UBRTHUHB"
       account-number: "HU18-1201-0659-0160-2199-0020-0008"
-    tito-signature-validator-env: TITO_TOKEN_JS
+    tito-signature-validator-env: TITO_TOKEN_TESTMODE
 
