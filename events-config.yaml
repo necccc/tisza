@@ -1,21 +1,16 @@
 ---
 events:
 
-  reinforce2020:
-    label: 'Reinforce Conference 2020'
-    date: 'April 6-7, 2020'
+  craft-conferencee-2021:
+    label: 'CraftHub online workshops'
     dates:
-      - ticket-name-contains: "Workshop"
-        date: "April 8, 2020"
-      - ticket-name-contains: "*"
-        date: "April 6-7, 2020"
+      - ticket-name-contains: "Falco"
+        date: "November 11, 18, 25, 2020"
+      - ticket-name-contains: "Rainsberger"
+        date: "November 10, 12, 17, 19, 2020"
     catering:
-      - ticket-name-contains: "Diversity"
-        net-price: 94.48
-      - ticket-name-contains: "Workshop"
-        net-price: 23.62
-      - ticket-name-contains: "*"
-        net-price: 47.24
+      - ticket-name-contains: "online"
+        net-price: 0
     invoice:
       id-prefix: "RF"
       logo-image: "RF-szamlazzhu.png"
@@ -25,23 +20,23 @@ events:
         This document was issued electronically and is therefore valid without signature.
       e-invoice: true
     email:
-      replyToAddress: "hello@reinforceconf.com"
-      subject: "Your invoice for Reinforce Conference 2020"
+      replyToAddress: "hello@crafthub.events"
+      subject: "Your invoice for your CraftHub online workshop"
       message: |
         Dear Attendee!
 
-        Thank you for taking part in Reinforce AI Conference 2020.
+        Thank you for purchasing tickets for CraftHub's online workshop.
 
-        Please find attached our official invoice for the Reinforce AI conference.
-        In case you have an issue with the invoice please reply to this e-mail.
-        In case you have a general question regarding the conference please write to: hello@reinforceconf.com
+        Please find attached our official invoice for the workshop.
+        In case you have an issue with the invoice, or you have a general question
+        regarding the workshop please write to: hello@crafthub.events
 
-        The Reinforce conference team
+        The CraftHub team
 
     bank:
       name: 'Raiffeisen Bank, SWIFT: UBRTHUHB'
       accountNumber: 'HU73-1201-0659-0160-2199-0040-0002'
-    tito-signature-validator-env: TITO_TOKEN_RF
+    tito-signature-validator-env: TITO-TOKEN-ONLINE-WSH
 
 
   jsconf-budapest-2021:
@@ -61,23 +56,23 @@ events:
         This document was issued electronically and is therefore valid without signature.
       e-invoice: true
     email:
-      replyToAddress: "team@jsconfbp.com"
-      subject: "Your invoice for JSConf Budapest 2021"
+      replyToAddress: "hello@crafthub.events"
+      subject: "Your invoice for your CraftHub online workshop"
       message: |
         Dear Attendee!
 
-        Thank you for purchasing tickets for JSConf Budapest 2021.
+        Thank you for purchasing tickets for CraftHub's online workshop.
 
-        Please find attached our official invoice for the conference.
+        Please find attached our official invoice for the workshop.
         In case you have an issue with the invoice, or you have a general question
-        regarding the conference please write to: team@jsconfbp.com
+        regarding the workshop please write to: hello@crafthub.events
 
-        The JSConf Budapest team
+        The CraftHub team
 
     bank:
       name: "Raiffeisen Bank, SWIFT: UBRTHUHB"
       accountNumber: "HU18-1201-0659-0160-2199-0020-0008"
-    tito-signature-validator-env: TITO_TOKEN_JS
+    tito-signature-validator-env: TITO-TOKEN-ONLINE-WSH
 
 
   integration-test-event-2020:
