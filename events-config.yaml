@@ -34,8 +34,8 @@ events:
         The CraftHub team
 
     bank:
-      name: 'Raiffeisen Bank, SWIFT: UBRTHUHB'
-      accountNumber: 'HU73-1201-0659-0160-2199-0040-0002'
+      name: 'K&H Bank, SWIFT: OKHBHUHB'
+      accountNumber: 'HU05-1040-3404-5052-6976-5752-1028'
     tito-signature-validator-env: TITO-TOKEN-ONLINE-WSH
 
 
