@@ -12,7 +12,7 @@ events:
       - ticket-name-contains: "online"
         net-price: 0
     invoice:
-      id-prefix: "RF"
+      id-prefix: "WSH"
       logo-image: "RF-szamlazzhu.png"
       comment: |
         The invoice includes mediated services.
