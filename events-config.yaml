@@ -8,6 +8,8 @@ events:
         date: "November 11, 18, 25, 2020"
       - ticket-name-contains: "Rainsberger"
         date: "November 10, 12, 17, 19, 2020"
+      - ticket-name-contains: "Titkos"
+        date: "November 11, 18, 25, 2020"
     catering:
       - ticket-name-contains: "online"
         net-price: 0
