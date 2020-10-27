@@ -40,3 +40,44 @@ events:
       accountNumber: 'HU05-1040-3404-5052-6976-5752-1028'
     tito-signature-validator-env: TITO_TOKEN_ONLINE_WSH
 
+
+events:
+
+  crafthub-stretch-online-conference:
+    label: "CraftHub - Stretch Online Conference"
+    dates:
+      - ticket-name-contains: "Stretch"
+        date: "December 2-4, 2020"
+      - ticket-name-contains: "Bird"
+        date: "December 2-4, 2020"
+    catering:
+      - ticket-name-contains: "Stretch"
+        net-price: 0
+      - ticket-name-contains: "Bird"
+        net-price: 0
+    invoice:
+      id-prefix: "STRCH"
+      logo-image: ""
+      comment: |
+        The invoice includes mediated services.
+        Paid in full.
+        This document was issued electronically and is therefore valid without signature.
+      e-invoice: true
+    email:
+      replyToAddress: "hello@crafthub.events"
+      subject: "Your invoice for your Stretch Online Conference"
+      message: |
+        Dear Attendee!
+
+        Thank you for purchasing tickets for Stretch Online Conference.
+
+        Please find attached our official invoice for the conference.
+        In case you have an issue with the invoice, or you have a general question
+        regarding the workshop please write to: hello@crafthub.events
+
+        The CraftHub team
+
+    bank:
+      name: 'K&H Bank, SWIFT: OKHBHUHB'
+      accountNumber: 'HU05-1040-3404-5052-6976-5752-1028'
+    tito-signature-validator-env: TITO_TOKEN_ONLINE_WSH
