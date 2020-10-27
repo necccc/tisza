@@ -2,7 +2,7 @@
 events:
 
   craft-conferencee-2021:
-    label: 'CraftHub online workshops'
+    label: "CraftHub online workshops"
     dates:
       - ticket-name-contains: "Falco"
         date: "November 11, 18, 25, 2020"
@@ -15,7 +15,7 @@ events:
         net-price: 0
     invoice:
       id-prefix: "WSH"
-      logo-image: "RF-szamlazzhu.png"
+      logo-image: ""
       comment: |
         The invoice includes mediated services.
         Paid in full.
