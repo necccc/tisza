@@ -62,6 +62,7 @@ events:
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
       e-invoice: true
+      currency: EUR
     email:
       replyToAddress: "hello@reinforceconf.com"
       subject: "Your invoice for Reinforce AI Conference 2021"
