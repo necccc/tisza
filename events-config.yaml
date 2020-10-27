@@ -4,12 +4,12 @@ events:
   reinforce2021:
     label: "Reinforce AI Conference 2021"
     dates:
-      - ticket-name-contains: "*"
-        date: "March 3–5, 2021"
       - ticket-name-contains: "ML/DL"
         date: "December 2 & 9, 2020"
       - ticket-name-contains: "MLflow"
         date: "November 23 & 24, 2020"        
+      - ticket-name-contains: "*"
+        date: "March 3–5, 2021"        
     catering:
       - ticket-name-contains: "*"
         net-price: 0
@@ -44,6 +44,10 @@ events:
   reinforce2021online:
     label: "Reinforce AI Conference 2021"
     dates:
+      - ticket-name-contains: "ML/DL"
+        date: "December 2 & 9, 2020"
+      - ticket-name-contains: "MLflow"
+        date: "November 23 & 24, 2020"       
       - ticket-name-contains: "*"
         date: "March 3–5, 2021"
     catering:
