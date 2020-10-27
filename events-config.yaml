@@ -80,4 +80,4 @@ events:
     bank:
       name: 'K&H Bank, SWIFT: OKHBHUHB'
       accountNumber: 'HU05-1040-3404-5052-6976-5752-1028'
-    tito-signature-validator-env: TITO_TOKEN_ONLINE_WSH
+    tito-signature-validator-env: TITO_TOKEN_STRETCH
