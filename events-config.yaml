@@ -24,6 +24,7 @@ events:
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
       e-invoice: true
+      currency: EUR
     email:
       replyToAddress: "hello@reinforceconf.com"
       subject: "Your invoice for Reinforce Conference 2020"
@@ -60,6 +61,7 @@ events:
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
       e-invoice: true
+      currency: EUR
     email:
       replyToAddress: "team@jsconfbp.com"
       subject: "Your invoice for JSConf Budapest 2021"
@@ -102,6 +104,7 @@ events:
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
       e-invoice: false
+      currency: EUR
     email:
       reply-to-address: "nec@jsconfbp.com"
       subject: "Your invoice for Integration Test Event 2020"
