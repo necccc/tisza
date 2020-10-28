@@ -17,7 +17,6 @@ events:
       id-prefix: "WSH"
       logo-image: ""
       comment: |
-        The invoice includes mediated services.
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
       e-invoice: true
@@ -59,7 +58,6 @@ events:
       id-prefix: "STRCH"
       logo-image: ""
       comment: |
-        The invoice includes mediated services.
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
       e-invoice: true
