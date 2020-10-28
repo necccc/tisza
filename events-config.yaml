@@ -20,6 +20,7 @@ events:
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
       e-invoice: true
+      currency: USD
     email:
       replyToAddress: "hello@crafthub.events"
       subject: "Your invoice for your CraftHub online workshop"
@@ -59,6 +60,7 @@ events:
         Paid in full.
         This document was issued electronically and is therefore valid without signature.
       e-invoice: true
+      currency: USD
     email:
       replyToAddress: "hello@crafthub.events"
       subject: "Your invoice for your Stretch Online Conference"
